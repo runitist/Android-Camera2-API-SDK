@@ -3,8 +3,8 @@ package com.prowdloner.camera2libraryproject.prowdVO;
 import android.os.Handler;
 import android.os.HandlerThread;
 
-// 쓰레드 관리 객체를 모아둔 VO 클래스
-// HandlerThread 와 Handler 로 구성
+// <쓰레드 관리 객체를 모아둔 VO 클래스>
+// HandlerThread 와 Handler, 그리고 스레드 이름으로 구성
 public class Prowd_ThreadSet_VO {
     private String threadName;
     private HandlerThread handlerThread;
