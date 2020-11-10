@@ -1,29 +1,15 @@
 package com.prowdloner.camera2libraryproject;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.graphics.SurfaceTexture;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
-import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
-import android.hardware.camera2.CameraMetadata;
-import android.hardware.camera2.CaptureRequest;
-import android.util.Size;
-import android.view.Surface;
 import android.view.TextureView;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 
 import com.prowdloner.camera2libraryproject.prowdlib.Prowd_Camera2;
 import com.prowdloner.camera2libraryproject.prowdlib.Prowd_Logger;
 import com.prowdloner.camera2libraryproject.prowdlib.Prowd_Permission;
 import com.prowdloner.camera2libraryproject.prowdlib.Prowd_Utils;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends CameraActivity {
     private static final Prowd_Logger MY_LOGGER = new Prowd_Logger();
@@ -53,9 +39,13 @@ public class MainActivity extends CameraActivity {
     protected void after_permission_granted() {
         Prowd_Camera2 camera2 = getCamera2_obj();
         TextureView textureView = (TextureView) findViewById(R.id.texture_view);
-        final CameraManager CAMERA_MANAGER = camera2.getCameraManager();
         final String CAMERA_ID = camera2.chooseCamera(CameraCharacteristics.LENS_FACING_BACK);
         camera2.show_cameraPreview(textureView, CAMERA_ID);
+
+
+        TextureView textureView2 = (TextureView) findViewById(R.id.texture_view2);
+        final String CAMERA_ID2 = camera2.chooseCamera(CameraCharacteristics.LENS_FACING_FRONT);
+        camera2.show_cameraPreview(textureView2, CAMERA_ID2);
 
 
         // MY_LOGGER.e("<<<<<<<<<<test>>>>>>>>>> " + cameraId);
